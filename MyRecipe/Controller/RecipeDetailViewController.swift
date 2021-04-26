@@ -124,7 +124,6 @@ class RecipeDetailViewController: UIViewController {
         present(alertController, animated: true) {
             table.reloadData()
         }
-         //let addString = "\(ingredient[selectRow.row].amount) " + ingredient[selectRow.row].unit! + " \(ingredient[selectRow.row].originalName)"
     }
     
 }
@@ -137,7 +136,6 @@ extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate
         let cell = FoodTable.dequeueReusableCell(withIdentifier: "food") as! IngredientTableViewCell
         //cell.foodLabel.font = UIFont(name: "Hiragino Mincho ProN", size: 12)
         let items = ingredient[indexPath.row]
-        //longsecStr = String(format: "%.3f", longsec)
         quantity = String(format:"%.2f", Double(items.amount / Double(item.servings)) * QuantityStepper.value)
         if let unit = items.unit {
             cell.foodLabel.text =  quantity + unit + " \(items.originalName)"
