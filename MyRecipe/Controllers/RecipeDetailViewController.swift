@@ -33,8 +33,8 @@ class RecipeDetailViewController: UIViewController {
     var quantity: String = ""
     let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
+//        flowLayout.minimumLineSpacing = 0
+//        flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 250)
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 500, width: UIScreen.main.bounds.width, height: 230), collectionViewLayout: flowLayout)
@@ -84,7 +84,6 @@ class RecipeDetailViewController: UIViewController {
         
     }
     func setupCollectionView() {
-        //let layout = UICollectionViewFlowLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(StepCell.self, forCellWithReuseIdentifier: "cellId")

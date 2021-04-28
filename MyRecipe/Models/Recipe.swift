@@ -56,11 +56,9 @@ struct Step: Codable {
 }
 
 
-struct Session: Decodable{
-    let APIkey: String = "4ff9f759176f40fe807cfa4febdffa89"
-    let RecipieID: Int
-    let SearchFood: String
-}
+
+    //let APIkey: String = "4ff9f759176f40fe807cfa4febdffa89"
+
 
 
 /*

@@ -171,7 +171,6 @@
                                                     <rect key="frame" x="327" y="9" width="25" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="AddButtonIndex:" destination="VQG-DR-1GW" eventType="touchUpInside" id="5nr-PQ-Vms"/>
                                                         <action selector="AddFood:" destination="z0y-78-XgU" eventType="touchUpInside" id="rLN-6P-1m6"/>
                                                     </connections>
                                                 </button>
@@ -214,6 +213,13 @@
                                     <action selector="ControlQuantity:" destination="z0y-78-XgU" eventType="editingDidEnd" id="2T9-Rg-kYP"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="04I-2p-u11">
+                                <rect key="frame" x="20" y="490" width="382" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dtt-gb-0dy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -283,7 +289,6 @@
         <!--Custom-->
         <scene sceneID="2Uo-Ml-sOH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qs5-aH-75Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Smc-9Z-iwW" customClass="CustomViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zRx-OO-Imv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -404,6 +409,7 @@
                         <outlet property="RedValue" destination="MBy-QA-VAg" id="fIv-iy-yEr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qs5-aH-75Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-528" y="1272"/>
         </scene>
