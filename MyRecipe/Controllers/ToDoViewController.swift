@@ -15,13 +15,6 @@ import UIKit
 
 class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-//    private let add: UIButton = {
-//        let add = UIButton()
-//        add.backgroundColor = .darkGray
-//        add.target(forAction: #selector(itemadded), withSender: self)
-//        //add.translatesAutoresizingMaskIntoConstraints = false
-//        return add
-//    }()
     var Selectrow: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +42,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
             controller.uneditInt = Selectrow
         }
     }
-
-
+    //add to list
     @objc private func additem() {
         let alert = UIAlertController(title: "New Ingredient", message: "", preferredStyle: .alert)
         alert.addTextField { field in
@@ -75,6 +67,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }))
         present(alert, animated: true)
     }
+    //change the order of the list but the data order will not change
     @objc func ChangeOrder() {
         if table.isEditing {
             table.isEditing = false
@@ -100,24 +93,21 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.textLabel?.font = UIFont(name: "Hiragino Mincho ProN", size: 20)
         return cell
     }
+    // changing the order of the tableView
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         food.swapAt(sourceIndexPath.row, destinationIndexPath.row)
-        
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-
             currentFood.remove(at: indexPath.row)
             UserDefaults.standard.removeObject(forKey: "food")
             food.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .fade)
             UserDefaults.standard.setValue(currentFood, forKey: "food")//add
             table.reloadData()
-            print(food)
-            print(currentFood)
         }
     }
 }
@@ -137,30 +127,26 @@ class noteController: UIViewController {
         view.addSubview(Note)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-
-        Note.frame = view.bounds
         setupNote()
     }
-
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        Note.frame = view.bounds
+    }
+    //set up Note textView
     func setupNote() {
         Note.text = food[uneditInt]
         Note.font = UIFont(name: "Hiragino Mincho ProN", size: 25)
-//        Note.backgroundColor = .blue
-//        Note.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-//        Note.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10).isActive = true
-//        Note.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-//        Note.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
     }
+    //save the text of your food note
     @objc func save() {
         editedtext = Note.text
-        print(editedtext)
         currentFood[uneditInt] = editedtext
-        UserDefaults.standard.setValue(currentFood, forKey: "food")
         food[uneditInt] = editedtext
-        print(food)
-        print(currentFood)
+        UserDefaults.standard.setValue(currentFood, forKey: "food")
         self.navigationController?.popToRootViewController(animated: true)
     }
+    //go back to main page
     @objc func cancel() {
         self.navigationController?.popToRootViewController(animated: true)
     }

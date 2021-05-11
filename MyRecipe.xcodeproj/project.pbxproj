@@ -25,6 +25,8 @@
 		C2B4D262262FF6F2005A4F5B /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B4D261262FF6F1005A4F5B /* MenuTableViewCell.swift */; };
 		C2CC25DB26302D2F001C91B0 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC25DA26302D2F001C91B0 /* IngredientTableViewCell.swift */; };
 		C2CC25E4263289F8001C91B0 /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC25E3263289F7001C91B0 /* StepCell.swift */; };
+		C2E5278F264163AC00D61FFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E5278E264163AC00D61FFA /* SearchViewController.swift */; };
+		C2E527972643994500D61FFA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E527962643994400D61FFA /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		C2B4D261262FF6F1005A4F5B /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		C2CC25DA26302D2F001C91B0 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		C2CC25E3263289F7001C91B0 /* StepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCell.swift; sourceTree = "<group>"; };
+		C2E5278E264163AC00D61FFA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C2E527962643994400D61FFA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +84,9 @@
 		C21C2B5A260709D400A0F231 /* MyRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				C21C2B61260709D400A0F231 /* Main.storyboard */,
 				C21C2B5B260709D400A0F231 /* AppDelegate.swift */,
 				C21C2B5D260709D400A0F231 /* SceneDelegate.swift */,
-				C21C2B61260709D400A0F231 /* Main.storyboard */,
 				C285A6902637E07F001866AF /* Models */,
 				C285A68C2637D061001866AF /* Views */,
 				C2B4D256262EBA49005A4F5B /* Controllers */,
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C2B4D253262EBA3C005A4F5B /* RecipeTableViewCell.swift */,
+				C2E527962643994400D61FFA /* SearchTableViewCell.swift */,
 				C2CC25DA26302D2F001C91B0 /* IngredientTableViewCell.swift */,
 				C2B4D261262FF6F1005A4F5B /* MenuTableViewCell.swift */,
 				C2B4D25D262F1429005A4F5B /* FoodDetailTableViewCell.swift */,
@@ -117,11 +122,12 @@
 		C2B4D256262EBA49005A4F5B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2B4D259262ECACD005A4F5B /* RecipeDetailViewController.swift */,
+				C2B4D20226273081005A4F5B /* ToDoViewController.swift */,
+				C2E5278E264163AC00D61FFA /* SearchViewController.swift */,
 				C21C2B7D2607CA4700A0F231 /* ListTableViewController.swift */,
+				C2B4D259262ECACD005A4F5B /* RecipeDetailViewController.swift */,
 				C2B4D245262D60A4005A4F5B /* RecipeViewController.swift */,
 				C2B4D241262D41AC005A4F5B /* RecipeTableViewController.swift */,
-				C2B4D20226273081005A4F5B /* ToDoViewController.swift */,
 				C23EC10926397775007DF76C /* EditFoodViewController.swift */,
 			);
 			path = Controllers;
@@ -208,7 +214,9 @@
 				C21C2B5E260709D400A0F231 /* SceneDelegate.swift in Sources */,
 				C21C2B7E2607CA4700A0F231 /* ListTableViewController.swift in Sources */,
 				C2B4D25E262F142A005A4F5B /* FoodDetailTableViewCell.swift in Sources */,
+				C2E527972643994500D61FFA /* SearchTableViewCell.swift in Sources */,
 				C2B4D20326273081005A4F5B /* ToDoViewController.swift in Sources */,
+				C2E5278F264163AC00D61FFA /* SearchViewController.swift in Sources */,
 				C2B4D246262D60A5005A4F5B /* RecipeViewController.swift in Sources */,
 				C2B4D25A262ECACD005A4F5B /* RecipeDetailViewController.swift in Sources */,
 				C2B4D24C262D6855005A4F5B /* Recipe.swift in Sources */,

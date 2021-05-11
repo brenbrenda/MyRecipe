@@ -61,7 +61,7 @@ struct Step: Codable {
 
 
 
-/*
+
 struct ParseRecipeController {
     static let shared = ParseRecipeController()
     private let Str = "https://api.spoonacular.com/recipes/complexSearch?apiKey=4ff9f759176f40fe807cfa4febdffa89&query=pasta&maxFat=25"
@@ -82,7 +82,7 @@ struct ParseRecipeController {
                 }
                 do {
                     let decoder = JSONDecoder()
-                    let recipe = try decoder.decode(Recipe.self, from: data)
+                    let recipe = try decoder.decode(RecipeCate.self, from: data)
                     
                 } catch {
                     print("Unable to decode response: \(error.localizedDescription)")
@@ -91,4 +91,4 @@ struct ParseRecipeController {
             
         }.resume()
     }
-}*/
+}

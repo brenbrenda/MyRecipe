@@ -9,8 +9,8 @@ import UIKit
 
 class RecipeTableViewController: UITableViewController {
 
-    //var item = [Result]()
-    let Menu :String
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    var Menu :String
     init?(coder: NSCoder, Menu: String) { //coder 以及欲傳的資料
         self.Menu = Menu
         super.init(coder: coder)
@@ -27,7 +27,7 @@ class RecipeTableViewController: UITableViewController {
             return
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 guard error == nil else {
                     print("Failed request:\(error)")
                     return
@@ -40,8 +40,11 @@ class RecipeTableViewController: UITableViewController {
 //                    print(String(data: data, encoding: .utf8))
                     let decoder = JSONDecoder()
                     let category = try decoder.decode(RecipeCate.self, from: data)
-                    self.item = category.recipes
-                    self.tableView.reloadData()
+                    self?.item = category.recipes
+                    self?.tableView.reloadData()
+                    self?.activity.stopAnimating()
+                    self?.activity.isHidden = true
+                   
                 } catch {
                     print(error)
                 }
@@ -52,6 +55,11 @@ class RecipeTableViewController: UITableViewController {
         super.viewDidLoad()
         fetchdata()
         title = Menu
+        if let activity = activity{
+            activity.isHidden = false
+            activity.startAnimating()
+        }
+       
     }
     // MARK: - Table view data source
 
@@ -92,16 +100,5 @@ class RecipeTableViewController: UITableViewController {
         guard let row = tableView.indexPathForSelectedRow?.row else { return nil }
         return RecipeDetailViewController(coder: coder, item: item[row])
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

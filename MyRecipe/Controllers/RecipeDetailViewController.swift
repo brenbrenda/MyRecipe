@@ -13,10 +13,6 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var FoodServings: UITextField!
     @IBOutlet weak var QuantityStepper: UIStepper!
     let item: RecipeDetail
-    var addString = ""
-    var ingredient = [ExtendedIngredients]()
-    var instruct = [AnalyzedInstructions]()
-    var collecStep = [Step]()
 //    lazy var stepinstructList: [String] = {
 //        var stepinstruct = [Step]()
 //
@@ -30,11 +26,13 @@ class RecipeDetailViewController: UIViewController {
         fatalError()
     }
     var servings: Double = 0.00
-    var quantity: String = ""
+    var quantity: String = "" //儲存運算好的食譜份量
+    var addString = "" //加入代買清單
+    var ingredient = [ExtendedIngredients]()
+    var instruct = [AnalyzedInstructions]()
+    var collecStep = [Step]()
     let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.minimumLineSpacing = 0
-//        flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 250)
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 500, width: UIScreen.main.bounds.width, height: 230), collectionViewLayout: flowLayout)
@@ -42,7 +40,13 @@ class RecipeDetailViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
-        
+    let instructLabel: UILabel = {
+        let instructLabel = UILabel()
+        instructLabel.text = "Instruction"
+        instructLabel.font = UIFont(name: "Hiragino Mincho ProN", size: 21)
+        instructLabel.textAlignment = .center
+        return instructLabel
+    }()
     let pageControl: UIPageControl = {
         let pageControl = UIPageControl(frame: CGRect(x: 0, y: 720, width: UIScreen.main.bounds.width, height: 50))
         //pageControl.numberOfPages = 5//self.imageNameList.count
@@ -55,12 +59,12 @@ class RecipeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = item.title
-        view.addSubview(collectionView)
         QuantityStepper.value = Double(item.servings)
         FoodServings.text = "\(QuantityStepper.value)"
         ingredient = item.extendedIngredients
         instruct = item.analyzedInstructions
         collecStep = item.analyzedInstructions[0].steps
+        view.addSubview(instructLabel)
         //pageControl.numberOfPages = collecStep.count
         setupNavTitle()
         setupCollectionView()
@@ -81,14 +85,17 @@ class RecipeDetailViewController: UIViewController {
         food = UserDefaults.standard.stringArray(forKey: "food") ?? []
         FoodTable.dataSource = self
         FoodTable.delegate = self
-        
+
     }
     func setupCollectionView() {
+        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(StepCell.self, forCellWithReuseIdentifier: "cellId")
         collectionView.reloadData()
         collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: false)
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        collectionView.topAnchor.constraint(equalTo: FoodTable.bottomAnchor,constant: 39).isActive = true
         self.view.addSubview(pageControl)
     }
     @IBAction func ControlServings(_ sender: UIStepper) {
@@ -108,14 +115,13 @@ class RecipeDetailViewController: UIViewController {
     
     @IBAction func AddFood(_ sender: UIButton) {
         let buttonPointOnCell = sender.convert(CGPoint.zero, to: FoodTable)
-        table.reloadData()
         if let indexfood = FoodTable.indexPathForRow(at: buttonPointOnCell) {
-            quantity = String(format:"%.2f", Double(ingredient[indexfood.row].amount / Double(item.servings)) * QuantityStepper.value)
+            quantity = String(format:"%.2f", Double(ingredient[indexfood.row].amount / Double(item.servings)) * QuantityStepper.value)  //儲存運算好的食譜份量
             if let unit = ingredient[indexfood.row].unit {
                 addString = quantity + unit + "\(ingredient[indexfood.row].originalName)"
             }
         }
-        currentFood.append(addString)
+        currentFood.append(addString)  //將欲買食材加入至清單中 存入至userDefault
         UserDefaults.standard.setValue(currentFood, forKey: "food")
         food.append(addString)
         let alertController = UIAlertController(title: "YOU HAVE ADDED IN YOUR LIST", message: "", preferredStyle: .alert)
@@ -188,9 +194,11 @@ extension RecipeDetailViewController: UICollectionViewDelegate {
 }
 extension RecipeDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        //collectionView cell之間的間隙
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //collectionView每個cell的大小
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }

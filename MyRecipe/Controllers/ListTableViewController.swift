@@ -9,11 +9,14 @@ import UIKit
 
 class ListTableViewController: UITableViewController {
 
+    @IBOutlet weak var search: UISearchBar!
     let Menu = ["lunch","main dish","dinner","dessert"]
+    var item = [RecipeDetail]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         title = "RECIPE"
+        tableView.rowHeight = (UIScreen.main.bounds.height - search.bounds.height - 10) / 4
     }
 
     // MARK: - Table view data source
@@ -24,8 +27,7 @@ class ListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return Menu.count
+        Menu.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuTableViewCell
@@ -36,5 +38,6 @@ class ListTableViewController: UITableViewController {
     @IBSegueAction func CategoryRecipe(_ coder: NSCoder) -> RecipeTableViewController? {
         guard let selectedMenu = tableView.indexPathForSelectedRow else { return nil }
         return RecipeTableViewController(coder: coder, Menu: Menu[selectedMenu.row])
+      
     }
 }
