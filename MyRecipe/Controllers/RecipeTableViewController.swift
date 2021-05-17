@@ -42,9 +42,7 @@ class RecipeTableViewController: UITableViewController {
                     let category = try decoder.decode(RecipeCate.self, from: data)
                     self?.item = category.recipes
                     self?.tableView.reloadData()
-                    self?.activity.stopAnimating()
-                    self?.activity.isHidden = true
-                   
+                    self?.activity.removeFromSuperview()
                 } catch {
                     print(error)
                 }

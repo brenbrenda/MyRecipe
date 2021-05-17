@@ -27,14 +27,6 @@ class SearchTableViewCell: UITableViewCell {
     }()
     override func awakeFromNib() {
         super.awakeFromNib()
-        if let itemimage = item.image {
-            fetchImage(url: itemimage) {(image) in
-                DispatchQueue.main.async {
-                    self.FoodImage.image = image
-                }
-            }
-        }
-        FoodName.text = item.title
 //        FoodName.frame = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 10)
 //        FoodImage.frame = CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width - 20 , height: 260)
 //        addSubview(FoodName)
@@ -75,6 +67,16 @@ class SearchTableViewCell: UITableViewCell {
         FoodImage.topAnchor.constraint(equalTo: topAnchor).isActive = true
         FoodImage.bottomAnchor.constraint(equalTo: FoodName.topAnchor).isActive = true
        
+    }
+    func setupCell() {
+        if let itemimage = item.image {
+            fetchImage(url: itemimage) {(image) in
+                DispatchQueue.main.async {
+                    self.FoodImage.image = image
+                }
+            }
+        }
+        FoodName.text = item.title
     }
     func fetchImage(url: URL, completion: @escaping(UIImage?) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in

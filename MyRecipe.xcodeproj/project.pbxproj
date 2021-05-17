@@ -91,7 +91,6 @@
 				C285A68C2637D061001866AF /* Views */,
 				C2B4D256262EBA49005A4F5B /* Controllers */,
 				C21C2B64260709D700A0F231 /* Assets.xcassets */,
-				C21C2B66260709D700A0F231 /* LaunchScreen.storyboard */,
 				C21C2B69260709D700A0F231 /* Info.plist */,
 			);
 			path = MyRecipe;
@@ -129,6 +128,7 @@
 				C2B4D245262D60A4005A4F5B /* RecipeViewController.swift */,
 				C2B4D241262D41AC005A4F5B /* RecipeTableViewController.swift */,
 				C23EC10926397775007DF76C /* EditFoodViewController.swift */,
+				C21C2B66260709D700A0F231 /* LaunchScreen.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
