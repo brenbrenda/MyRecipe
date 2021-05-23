@@ -15,6 +15,7 @@
 		C21C2B7E2607CA4700A0F231 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C2B7D2607CA4700A0F231 /* ListTableViewController.swift */; };
 		C23EC10A26397775007DF76C /* EditFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23EC10926397775007DF76C /* EditFoodViewController.swift */; };
 		C23EC10D26397DAA007DF76C /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23EC10C26397DAA007DF76C /* Food.swift */; };
+		C287B14A26556BFB000C4022 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C287B14926556BFB000C4022 /* SearchDetailViewController.swift */; };
 		C2B4D20326273081005A4F5B /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B4D20226273081005A4F5B /* ToDoViewController.swift */; };
 		C2B4D242262D41AC005A4F5B /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B4D241262D41AC005A4F5B /* RecipeTableViewController.swift */; };
 		C2B4D246262D60A5005A4F5B /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B4D245262D60A4005A4F5B /* RecipeViewController.swift */; };
@@ -40,6 +41,7 @@
 		C21C2B7D2607CA4700A0F231 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		C23EC10926397775007DF76C /* EditFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodViewController.swift; sourceTree = "<group>"; };
 		C23EC10C26397DAA007DF76C /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		C287B14926556BFB000C4022 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		C2B4D20226273081005A4F5B /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		C2B4D241262D41AC005A4F5B /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
 		C2B4D245262D60A4005A4F5B /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				C285A6902637E07F001866AF /* Models */,
 				C285A68C2637D061001866AF /* Views */,
 				C2B4D256262EBA49005A4F5B /* Controllers */,
+				C21C2B66260709D700A0F231 /* LaunchScreen.storyboard */,
 				C21C2B64260709D700A0F231 /* Assets.xcassets */,
 				C21C2B69260709D700A0F231 /* Info.plist */,
 			);
@@ -123,12 +126,12 @@
 			children = (
 				C2B4D20226273081005A4F5B /* ToDoViewController.swift */,
 				C2E5278E264163AC00D61FFA /* SearchViewController.swift */,
+				C287B14926556BFB000C4022 /* SearchDetailViewController.swift */,
 				C21C2B7D2607CA4700A0F231 /* ListTableViewController.swift */,
 				C2B4D259262ECACD005A4F5B /* RecipeDetailViewController.swift */,
 				C2B4D245262D60A4005A4F5B /* RecipeViewController.swift */,
 				C2B4D241262D41AC005A4F5B /* RecipeTableViewController.swift */,
 				C23EC10926397775007DF76C /* EditFoodViewController.swift */,
-				C21C2B66260709D700A0F231 /* LaunchScreen.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				C21C2B5C260709D400A0F231 /* AppDelegate.swift in Sources */,
 				C2B4D254262EBA3C005A4F5B /* RecipeTableViewCell.swift in Sources */,
 				C2CC25E4263289F8001C91B0 /* StepCell.swift in Sources */,
+				C287B14A26556BFB000C4022 /* SearchDetailViewController.swift in Sources */,
 				C2CC25DB26302D2F001C91B0 /* IngredientTableViewCell.swift in Sources */,
 				C21C2B5E260709D400A0F231 /* SceneDelegate.swift in Sources */,
 				C21C2B7E2607CA4700A0F231 /* ListTableViewController.swift in Sources */,
