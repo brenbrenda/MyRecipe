@@ -113,6 +113,9 @@
                                             <state key="normal">
                                                 <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                             </state>
+                                            <connections>
+                                                <action selector="checkHeart:" destination="olQ-D7-4Dj" eventType="touchUpInside" id="CQm-vG-06i"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -320,6 +323,7 @@
                         <segue destination="jHL-75-WDU" kind="relationship" relationship="viewControllers" id="9FY-3N-a3T"/>
                         <segue destination="JOD-Gm-OMI" kind="relationship" relationship="viewControllers" id="nnI-AW-H4T"/>
                         <segue destination="Qrt-bu-ZwT" kind="relationship" relationship="viewControllers" id="dw1-wN-bzC"/>
+                        <segue destination="l6g-2h-HhF" kind="relationship" relationship="viewControllers" id="jHC-mG-o1x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sn2-O8-zTp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -452,6 +456,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qs5-aH-75Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-583" y="1759"/>
+        </scene>
+        <!--Wish List-->
+        <scene sceneID="NZg-4I-snV">
+            <objects>
+                <viewController id="l6g-2h-HhF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4cj-r3-iLs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xCS-Nb-Wjp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Wish List" image="heart" catalog="system" id="nEi-ms-9xI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fA-hA-aqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2061" y="-670"/>
         </scene>
         <!--ShopList-->
         <scene sceneID="mN9-Zx-rim">

@@ -63,7 +63,7 @@ class RecipeDetailViewController: UIViewController {
         FoodServings.text = "\(QuantityStepper.value)"
         ingredient = item.extendedIngredients
         instruct = item.analyzedInstructions
-        collecStep = item.analyzedInstructions[0].steps
+//        collecStep = item.analyzedInstructions[0].steps
         view.addSubview(instructLabel)
         //pageControl.numberOfPages = collecStep.count
         setupNavTitle()
@@ -93,12 +93,12 @@ class RecipeDetailViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(StepCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.register(StepCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.reloadData()
         collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: false)
 //        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        collectionView.topAnchor.constraint(equalTo: FoodTable.bottomAnchor,constant: 39).isActive = true
-        self.view.addSubview(pageControl)
+//        collectionView.topAnchor.constraint(equalTo: FoodTable.bottomAnchor,constant: 30).isActive = true
+//        self.view.addSubview(pageControl)
     }
     @IBAction func ControlServings(_ sender: UIStepper) {
         //QuantityStepper.value = Double(item.servings)
@@ -162,10 +162,10 @@ extension RecipeDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as? StepCell else {return UICollectionViewCell()}
-        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .yellow
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? StepCell else {return UICollectionViewCell()}
+//        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .yellow
         let steps = instruct[0].steps[indexPath.item]
-//        cell.foodTextView.text = "\(steps.number)\n \(steps.step)"
+        cell.foodTextView.text = "\(steps.number)\n \(steps.step)"
         print(steps)
         /// 給text賦值（在首尾分別添加兩text）
 //        if (indexPath.item == 0) {
@@ -203,6 +203,6 @@ extension RecipeDetailViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //collectionView每個cell的大小
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }

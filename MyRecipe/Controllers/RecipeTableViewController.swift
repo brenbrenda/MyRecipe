@@ -11,6 +11,7 @@ class RecipeTableViewController: UITableViewController {
 
     @IBOutlet weak var activity: UIActivityIndicatorView!
     var Menu :String
+    
     init?(coder: NSCoder, Menu: String) { //coder 以及欲傳的資料
         self.Menu = Menu
         super.init(coder: coder)
@@ -69,7 +70,7 @@ class RecipeTableViewController: UITableViewController {
         return item.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RecipeTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? RecipeTableViewCell else {return UITableViewCell()}
         let items = item[indexPath.row]
         //let setcellFont = UIFont(name: "Hiragino Mincho ProN", size: 22)
         //cell.FoodName.font = setcellFont
